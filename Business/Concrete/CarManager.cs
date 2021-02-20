@@ -21,5 +21,10 @@ namespace Business.Concrete
             return _carDal.GetAll();
             
         }
+
+        public IEnumerable<object> GetByDailyPrice(int v1, int v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
