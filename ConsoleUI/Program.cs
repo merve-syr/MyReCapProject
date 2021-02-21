@@ -3,19 +3,35 @@ using DataAccess.Concrete.EntityFrameWork;
 using DataAccess.Concrete.InMemory;
 using System;
 
-namespace ConsoleUI
+namespace Core.DataAccess
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new EfCar());
-            foreach (var car in carManager.GetAll())
-            {
-              
-                Console.WriteLine(car.ColorId);
-            }
+            CarTest();
+        //ColorTest();
 
+        }
+
+        private static void ColorTest()
+        {
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+            foreach (var color in colorManager.GetAll())
+            {
+                Console.WriteLine(color.ColorName);
+
+            }
+        }
+
+        private static void CarTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            foreach (var car in carManager.GetCarDetails())
+            {
+
+                Console.WriteLine(car.Description+"/" + car.Description);
+            }
         }
     }
 }
